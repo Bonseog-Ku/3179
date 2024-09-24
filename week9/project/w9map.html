@@ -1,5 +1,19 @@
-{
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+<title>First Vega-Lite map </title>
+</head>
+<body>
+<div id="vis"/>
+<script>
+    const spec = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "12-month mental disorders by state/territory, 2020–2022",
     "width": 500,
     "height": 400,
@@ -19,18 +33,22 @@
           "fields": ["Proportion"]
         }
       },
-      {"calculate": "datum.Proportion + 1", "as": "Proportion behavior"}
+      {"calculate": "datum.Proportion", "as": "Amount of patiens"}
     ],
     "mark": {"type": "geoshape"},
     "encoding": {
       "color": {
-        "field": "Proportion behavior",
+        "field": "Amount of patiens",
         "type": "quantitative",
         "scale": {"type": "log"}
       },
       "tooltip": [
         {"field": "properties.STE_NAME16", "type": "nominal", "title": "State"},
-        {"field": "Proportion behavior", "type": "quantitative"}
+        {"field": "Amount of patiens", "type": "quantitative"}
       ]
     }
-  }
+    };
+    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+</script>
+</body>
+</html>
