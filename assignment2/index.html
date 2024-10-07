@@ -4,12 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
     <title>Australia LGBTQ Mental Health Index</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
         <h1>Australia LGBTQ Mental Health Index</h1>
+    <hr>    
     </header>
+    <p class="intro">Mental health issues are a huge issue in Australia right now, as at least 20% of residents suffer from it across every state.</p> <!-- New paragraph -->
+    <div id="mapchart"></div>
+    <div id="stacked"></div>
+    <hr>
+    <div id="radial"></div>
+    <div id="paired"></div>
+    <hr>
+    <div id="stacked_bar"></div>
+    <script type="text/javascript">    
+        var spec = "js/mapchart.vg.json";
+        vegaEmbed('#mapchart', spec).then(function(result) {
+        }).catch(console.error);
+
+        var spec2 = "js/stacked_area.vg.json";
+        vegaEmbed('#stacked', spec2).then(function(result) {
+        }).catch(console.error);
+
+        var spec3 = "js/radial.vg.json";
+        vegaEmbed('#radial', spec3).then(function(result) {
+        }).catch(console.error);
+        
+        var spec4 = "js/paired_bar.vg.json";
+        vegaEmbed('#paired', spec4).then(function(result) {
+        }).catch(console.error);
+
+        var spec5 = "js/stacked_bar.vg.json";
+        vegaEmbed('#stacked_bar', spec5).then(function(result) {
+        }).catch(console.error);
+    </script>
+
+
+
 </body>
 </html>
