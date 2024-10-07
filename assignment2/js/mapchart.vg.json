@@ -1,0 +1,37 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "12-month mental disorders by state/territory, 2020–2022",
+    "width": 500,
+    "height": 400,
+    "projection": {"type": "equirectangular"},
+    "data": {
+      "url": "https://raw.githubusercontent.com/Bonseog-Ku/3179/main/week9/project/js/australiastates.json",
+      "format": {"type": "topojson", "feature": "STE_2016_AUST"}
+    },
+    "transform": [
+      {
+        "lookup": "properties.STE_NAME16",
+        "from": {
+          "data": {
+            "url": "https://raw.githubusercontent.com/Bonseog-Ku/3179/main/week9/project/data/disorderdata.csv"
+          },
+          "key": "State",
+          "fields": ["Proportion"]
+        }
+      },
+      {"calculate": "datum.Proportion", "as": "% of patiens"}
+    ],
+    
+    "mark": {"type": "geoshape"},
+    "encoding": {
+      "color": {
+        "field": "% of patiens",
+        "type": "quantitative",
+        "scale": {"type": "log"}
+      },
+      "tooltip": [
+        {"field": "properties.STE_NAME16", "type": "nominal", "title": "State"},
+        {"field": "% of patiens", "type": "quantitative"}
+      ]
+    }
+  }

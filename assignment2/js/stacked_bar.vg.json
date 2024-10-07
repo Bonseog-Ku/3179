@@ -1,0 +1,63 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "title": "Selected self-management strategies for mental health by sexual orientation",
+        "width": 500,
+        "height": 500,
+    "description": "A stacked bar chart showing selected self-management strategies for mental health by sexual orientation.",
+    "data": {
+      "url": "https://raw.githubusercontent.com/Bonseog-Ku/3179/refs/heads/main/assignment2/data/Selected%20self-management%20strategies%20for%20mental%20health%20by%20sexual%20orientation%2C%202020%E2%80%932022.csv",
+      "format": {
+        "type": "csv"
+      }
+    },
+    "transform": [
+      {
+        "fold": ["Gay or lesbian (%)", "Bisexual (%)", "Heterosexual (%)"],
+        "as": ["Sexual Orientation", "Percentage"]
+      }
+    ],
+    "selection": {
+        "sexuality_select": {
+        "type": "multi",
+        "fields": ["Sexual Orientation"],
+        "bind": "legend"
+        }
+    },
+
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "Self-management Strategy",
+        "type": "ordinal",
+        "title": "Self-management Strategies"
+      },
+      "y": {
+        "field": "Percentage",
+        "type": "quantitative",
+        "title": "Percentage (%)"
+      },
+      "color": {
+        "field": "Sexual Orientation",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Gay or lesbian (%)", "Bisexual (%)", "Heterosexual (%)"],
+          "range": ["#e7ba52", "#1f77b4", "#9467bd"]
+        },
+        "title": "Sexual Orientation"
+      },
+      "opacity": {
+        "condition": {"selection": "sexuality_select", "value": 1},
+        "value": 0.2
+        },
+      "tooltip": [
+        {"field": "Sexual Orientation", "type": "ordinal", "title": "Sexuality"},
+        {"field": "Self-management Strategy", "type": "ordinal", "title": "Strategy"},
+        {"field": "Percentage", "type": "quantitative", "title": "Proportion (%)"}
+      ]
+    },
+    "config": {
+      "mark": {
+        "stroke": "white"
+      }
+    }
+  }

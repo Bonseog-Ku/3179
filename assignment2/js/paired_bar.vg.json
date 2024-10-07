@@ -1,0 +1,54 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Experience of Suicidal Thoughts and Self-Harm by Sexual Orientation & Gender Experience",
+    "width": 600,
+    "height": 500,
+    "data": {
+      "url": "https://raw.githubusercontent.com/Bonseog-Ku/3179/refs/heads/main/assignment2/data/Lifetime%20self-harm%20and%20suicidal%20thoughts%20by%20sexual%20orientation%20%26%20gender%20experience%2C%202020%E2%80%932022.csv",
+      "format": {"type": "csv"}
+    },
+    "transform": [
+      {
+        "fold": ["Experience of suicidal thoughts(%)", "Experience of self-harm (%)"],
+        "as": ["Experience Type", "Value"]
+      }
+    ],
+    
+
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "Sexual orientation & Gender experience",
+        "type": "nominal",
+        "title": "Sexual Orientation & Gender Experience"
+      },
+      "y": {
+        "field": "Value",
+        "type": "quantitative",
+        "title": "Percentage (%)"
+      },
+      "color": {
+        "field": "Experience Type",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Experience of suicidal thoughts(%)", "Experience of self-harm (%)"],
+          "range": ["#1f77b4", "#ff7f0e"]
+        },
+        "title": "Experience Type"
+      },
+      "xOffset": {
+        "field": "Experience Type" 
+      },
+      "tooltip": [
+        {"field": "Sexual orientation & Gender experience", "type": "nominal", "title": "Sexuality or Gender"},
+        {"field": "Experience Type", "type": "nominal", "title": "Experience"},
+        {"field": "Value", "type": "quantitative", "title": "%"}
+      ]
+    },
+    "config": {
+      "mark": {
+        "stroke": "white"
+      }
+    }
+
+  }

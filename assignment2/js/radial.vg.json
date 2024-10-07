@@ -1,0 +1,55 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "12-month mental disorder, by sexual orientation & gender experience",
+    "width": 500,
+    "height": 500,
+    "description": "12-month mental disorder percentages by sexual orientation and gender experience.",
+    "data": {
+      "url": "https://raw.githubusercontent.com/Bonseog-Ku/3179/refs/heads/main/assignment2/data/12-month%20mental%20disorder%2C%20by%20sexual%20orientation%20%26%20gender%20experience%2C%202020022.csv",
+      "format": {"type": "csv"}
+    },
+    "selection": {
+        "gender_sexuality": {
+        "type": "multi",
+        "fields": ["Sexual orientation & Gender experience"],
+        "bind": "legend"
+        }
+    },
+    "encoding": {
+      "theta": {
+        "field": "12-month mental disorder patients (%)",
+        "type": "quantitative",
+        "stack": true
+      },
+      "radius": {"field": "12-month mental disorder patients (%)", "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}},
+      "color": {
+        "field": "Sexual orientation & Gender experience",
+        "type": "nominal",
+        "legend": {"title": "Group"}
+      },
+
+
+      "tooltip": [
+        {"field": "Sexual orientation & Gender experience", "type": "nominal", "title": "Sexuality or Gender"},
+        {"field": "12-month mental disorder patients (%)", "type": "nominal", "title": "12-month mental disorder patients (%)"}
+      ]
+    },
+    
+    "layer": [
+        
+      {
+        "mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"}
+      },
+      {
+        "mark": {"type": "text", "radiusOffset": 20},
+        "encoding": {
+          "text": {
+            "field": "12-month mental disorder patients (%)",
+            "type": "quantitative",
+            "format": ".1f"
+          }
+        }
+      }
+    ]
+    
+  }

@@ -1,0 +1,60 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Proportion of persons with a mental or behavioural condition, 2017-18",
+    "width": 500,
+    "height": 300,
+    "data": {"url": "https://raw.githubusercontent.com/Bonseog-Ku/3179/refs/heads/main/assignment2/data/proportion_mental_health.csv"},
+    "params": [
+        {
+            "name": "gender_selection",
+            "bind": {
+            "input": "select",
+            "options": [
+            null,
+            "Males",
+            "Females"
+            ],
+            "labels":[
+            "Show All",
+            "Males",
+            "Females"
+            ],
+            "name": "Gender Selection: "
+            }
+        }
+    ],
+    "transform": [
+        
+        {
+          "fold": ["Males", "Females"],
+          "as": ["Gender", "count"]
+        },
+        {"filter": "gender_selection == null || datum.Gender == gender_selection"}
+
+      ],
+    "mark": "area",
+    "encoding": {
+      "x": {
+        "field": "Age",
+        "type": "ordinal",
+        "axis": {"title": "Age Group"}
+      },
+      "y": {
+        "aggregate": "sum",
+        "field": "count",
+        "type": "quantitative",
+        "axis": {"title": "Total Count"}
+      },
+      "color": {
+        "field": "Gender",
+      "type": "nominal",
+      "scale": {"scheme": "category20b"},
+      "legend": {"title": "gender"}
+      },
+      "tooltip": [
+        {"field": "Age", "type": "ordinal", "title": "Age"},
+        {"field": "Gender", "type": "nominal", "title": "Gender"},
+        {"field": "count", "type": "quantitative", "title": "Proportion (%)"}
+      ]
+    }
+  }
