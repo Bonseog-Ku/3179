@@ -1,6 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
+    background-color: #ffffff;
     margin: 0;
     padding: 0;
     display: block; /* Change to block to stack children vertically */
@@ -8,33 +7,99 @@ body {
 }
 
 p {
+    font-family: 'Roboto', sans-serif;
     text-align: left; /* Center align the text */
     font-size: 1.2rem; /* Font size */
     color: #666; /* Text color */
-    margin-bottom: 30px; /* Space below the paragraph */
+    margin-bottom: 5px; /* Space below the paragraph */
     padding: 0 20px; /* Padding on sides for mobile responsiveness */
+    
 }
 
 /* Header styling */
 header {
-    text-align: center;
-    margin-bottom: 30px;
+    text-align: left;
+    margin-bottom: 5px;
+    font-family: "Protest Strike", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.red{
+  color: #d13131;
+}
+
+.blue{
+  color: #2590c8;
+}
+
+.green{
+  color: #66c10a;
 }
 
 h1 {
-    color: #333;
     font-size: 2.5rem;
     margin: 0;
-    padding: 20px;
-    background-color: #e3f2fd;
+    padding: 10px;
     border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+
+
+.column {
+    float: left;
+    width: 33%;
+  }
+.columnMap {
+    padding-top: 20px;
+    float: left;
+    width: 30%;
+  }
+
+.columnArea {
+    padding-top: 20px;
+    float: left;
+    width: 33%;
+  }
+.columnRadial {
+  padding-top: 20px;
+
+    float: left;
+    width: 31%;
+  }
+
+  .columnPaired {
+    padding-top: 20px;
+
+    float: left;
+    width: 43%;
+  }
+  .columnStacked {
+    padding-top: 20px;
+
+    float: left;
+    width: 35%;
+  }
+  .columnLastText {
+    float: left;
+    width: 60%;
+  }
+  .columnSecondText {
+    float: left;
+    width: 23%;
+  }
+
+
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+
 div {
-    margin-bottom: 30px; /* Space between the divs */
+    margin-bottom: 5px; /* Space between the divs */
     background-color: white; /* Background for each chart */
-    padding: 20px; /* Padding around charts */
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
