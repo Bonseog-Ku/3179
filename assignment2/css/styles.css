@@ -25,6 +25,10 @@ header {
     font-style: normal;
 }
 
+.metadata{
+  font-size: 15px;
+}
+
 .red{
   color: #d13131;
 }
