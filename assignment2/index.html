@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Strike&family=Roboto:wght@300&display=swap" rel="stylesheet">    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,43 +11,67 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
     <title>Australia LGBTQ Mental Health Index</title>
     <link rel="stylesheet" href="css/styles.css">
+
 </head>
 <body>
     <header>
-        <h1>Australia LGBTQ Mental Health Index</h1>
-    <hr>    
+        <h1>Australia LGBTQ Mental Health Index</h1> 
     </header>
-    <p class="intro">Mental health issues are a huge issue in Australia right now, as at least 20% of residents suffer from it across every state.</p> <!-- New paragraph -->
-    <div id="mapchart"></div>
-    <div id="stacked"></div>
+    <div class="row">
+        <div class="columnMap">
+            <div id="mapchart"></div>
+        </div>
+        <div class="columnArea">
+            <div id="stacked"></div>
+        </div>
+        <div class="column">
+            <p class="intro">Mental health issues are a huge issue in Australia right now since at least <span class='red'>20%</span> of residents suffer from them. This can be due to many reasons such as social media, isolation, and a decline in the economy. We can also see that it is an especially severe problem among young people and this might be due to social pressure related to work, housing, relationships, and social media. Between 2017 and 2018, <span class='red'>30%</span> of female Australian residents suffered from mental health related issues and <span class='red'>21.3%</span> of male Australian residents between the age of 15 to 24 suffered from mental health related issues.</p> <!-- New paragraph -->
+        </div>
+    </div>
     <hr>
-    <div id="radial"></div>
-    <div id="paired"></div>
+    <div class="row">
+        <div class="columnRadial">
+            <div id="radial"></div>        
+        </div>
+        <div class="columnPaired">
+            <div id="paired"></div>
+        </div>       
+        <div class="columnSecondText">
+            <p class="intro">While mental health issues are big issues regardless of group, they are significantly more severe in the LGBTQ+ community. This can be due to <span class= 'blue'> social stigma, work discrimination, discrimination from family and friends, financial instability, and loneliness</span>. LGBTQ+ people are much more likely to experience violence, bullying, and being unemployed due to their sexuality and gender identity. All of those factors contribute to mental health issues such as <span class= 'blue'>anxiety, depression, and suicidal thoughts</span> which significantly worsens the overall mental health of the LGBTQ+ community. Visualisations show how transgender people are much more likely to experience mental disorders, suicidal thoughts, and self harm behavior than cisgender people and how gay, lesbian, bisexual, and different terms of people are much more likely to experience mental disorder, suicidal thoughts and self harm behavior than heterosexual people.</p> <!-- New paragraph -->
+        </div> 
+    </div>
     <hr>
-    <div id="stacked_bar"></div>
-    <script type="text/javascript">    
-        var spec = "js/mapchart.vg.json";
-        vegaEmbed('#mapchart', spec).then(function(result) {
-        }).catch(console.error);
 
-        var spec2 = "js/stacked_area.vg.json";
-        vegaEmbed('#stacked', spec2).then(function(result) {
-        }).catch(console.error);
-
-        var spec3 = "js/radial.vg.json";
-        vegaEmbed('#radial', spec3).then(function(result) {
-        }).catch(console.error);
+    <div class="row">
+        <div class="columnStacked">
+            <div id="stacked_bar"></div>
+        </div>
+        <div class="columnLastText">
+            <p class="intro">The graph on the left displays various strategies that Australian LGBTQ+ individuals choose to self-manage their mental health issues. <span class='red'>58% of bisexual people</span> choose to <span class = 'green'>seek support from family or friends</span>, and <span class='red'>51.3% of gay or lesbian people</span> choose to <span class = 'green'>increase their level of exercise or physical activities</span>. To decrease the amount of LGBTQ+ individuals suffering from mental disorders or mental health-related issues, we need to focus on building those environments for people. If you have any LGBTQ+ family members or friends, they will greatly appreciate your effort if you try to support them or participate in exercises with them to enlighten them.</p> <!-- New paragraph -->
+        </div>
         
-        var spec4 = "js/paired_bar.vg.json";
-        vegaEmbed('#paired', spec4).then(function(result) {
-        }).catch(console.error);
-
-        var spec5 = "js/stacked_bar.vg.json";
-        vegaEmbed('#stacked_bar', spec5).then(function(result) {
-        }).catch(console.error);
-    </script>
-
-
-
+    </div>
+    
 </body>
+<script type="text/javascript">    
+    var spec = "js/mapchart.vg.json";
+    vegaEmbed('#mapchart', spec).then(function(result) {
+    }).catch(console.error);
+
+    var spec2 = "js/stacked_area.vg.json";
+    vegaEmbed('#stacked', spec2).then(function(result) {
+    }).catch(console.error);
+
+    var spec3 = "js/radial.vg.json";
+    vegaEmbed('#radial', spec3).then(function(result) {
+    }).catch(console.error);
+    
+    var spec4 = "js/paired_bar.vg.json";
+    vegaEmbed('#paired', spec4).then(function(result) {
+    }).catch(console.error);
+
+    var spec5 = "js/stacked_bar.vg.json";
+    vegaEmbed('#stacked_bar', spec5).then(function(result) {
+    }).catch(console.error);
+</script>
 </html>
