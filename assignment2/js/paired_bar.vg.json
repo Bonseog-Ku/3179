@@ -1,8 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Experience of Suicidal Thoughts and Self-Harm by Sexual Orientation & Gender Experience",
-    "width": 600,
-    "height": 500,
+    "width": 380,
+    "height": 300,
     "data": {
       "url": "https://raw.githubusercontent.com/Bonseog-Ku/3179/refs/heads/main/assignment2/data/Lifetime%20self-harm%20and%20suicidal%20thoughts%20by%20sexual%20orientation%20%26%20gender%20experience%2C%202020%E2%80%932022.csv",
       "format": {"type": "csv"}
@@ -47,7 +47,7 @@
     },
     "config": {
       "mark": {
-        "stroke": "white"
+        "stroke": "transparent"
       }
     }
 

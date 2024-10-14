@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Proportion of persons with a mental or behavioural condition, 2017-18",
-    "width": 500,
+    "width": 380,
     "height": 300,
     "data": {"url": "https://raw.githubusercontent.com/Bonseog-Ku/3179/refs/heads/main/assignment2/data/proportion_mental_health.csv"},
     "params": [
@@ -56,5 +56,10 @@
         {"field": "Gender", "type": "nominal", "title": "Gender"},
         {"field": "count", "type": "quantitative", "title": "Proportion (%)"}
       ]
+    },
+    "config": {
+      "mark": {
+        "stroke": "transparent"
+      }
     }
   }
